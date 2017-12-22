@@ -5,6 +5,7 @@ var url = "mongodb://localhost:27017/restaurant_db";
 mongo.connect(url, function(err, db) {
 	var collection = db.collection('restaurants');
   
+  	// - Show all restaurants if user types 'all'
 	// var allChoice = prompt("Type 'all' and press enter to display all restaurants' names: ");
 	// if (allChoice == "all") {
 	//   collection.find().toArray(function(err, doc) {
@@ -20,7 +21,7 @@ mongo.connect(url, function(err, db) {
 	// 	console.log(doc);
 	// });
 
-	//TODO - Create a prompt to add restaurant
+	// - Create a prompt to add restaurant
 	var newName = prompt("Enter a restaurant name:");
 	var newStreet = prompt("Enter the street:");
 	var newZip = prompt("Enter the ZIP code:");
