@@ -15,8 +15,35 @@ mongo.connect(url, function(err, db) {
 	// }
 
 	// - Find restaurant by name
-	var allChoice = prompt("Enter a restaurant name:");
-	collection.find({name: allChoice}).forEach(function(doc) {
-		console.log(doc);
-	});
+	// var nameChoice = prompt("Enter a restaurant name:");
+	// collection.find({name: nameChoice}).forEach(function(doc) {
+	// 	console.log(doc);
+	// });
+
+	//TODO - Create a prompt to add restaurant
+	var newName = prompt("Enter a restaurant name:");
+	var newStreet = prompt("Enter the street:");
+	var newZip = prompt("Enter the ZIP code:");
+	var newYelp = prompt("Enter the yelp listing:");
+	var newRestaurant = {
+		name: newName,
+		address: {
+			street: newStreet,
+			zipcode: newZip
+		},
+		yelp: newYelp
+	};
+	collection.insert( newRestaurant );
+
+	//TODO - Create a prompt for users to edit restaurant
+	// var allChoice = prompt("Enter a restaurant name:");
+	// collection.find({name: allChoice}).forEach(function(doc) {
+	// 	console.log(doc);
+	// });
+
+	//TODO - Create a prompt for users to delete restaurants.
+	// var allChoice = prompt("Enter a restaurant name:");
+	// collection.find({name: allChoice}).forEach(function(doc) {
+	// 	console.log(doc);
+	// });
 });
