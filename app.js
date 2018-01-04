@@ -44,22 +44,22 @@ mongo.connect(url, function(err, db) {
 
 	// - PUT (update) restaurant
 	//
-	// var editChoice = prompt("Enter a restaurant name to edit:");
-	// collection.find({name: editChoice}).toArray(function(err, doc) {
-	// 	if (err) {console.log(err)};
-	// 	var editName = prompt("Enter its NEW restaurant name:");
-	// 	var editStreet = prompt("Enter its NEW street:");
-	// 	var editZip = prompt("Enter its NEW ZIP code:");
-	// 	var editYelp = prompt("Enter its NEW yelp listing:");
-	// 	doc[0].name = editName;
-	// 	doc[0].address.street = editStreet;
-	// 	doc[0].address.zipcode = editZip;
-	// 	doc[0].yelp = editYelp;
-	// 	console.log(doc);
-	// 	collection.update({name: editChoice}, doc[0], function(err, res) {
-	// 		err ? console.log(err) : console.log(res.result);
-	// 	});
-	// });
+	var editChoice = prompt("Enter a restaurant name to edit:");
+	collection.findOne({name: editChoice}, function(err, doc) {
+		if (err) {console.log(err)};
+		var editName = prompt("Enter its NEW restaurant name:");
+		var editStreet = prompt("Enter its NEW street:");
+		var editZip = prompt("Enter its NEW ZIP code:");
+		var editYelp = prompt("Enter its NEW yelp listing:");
+		doc.name = editName;
+		doc.address.street = editStreet;
+		doc.address.zipcode = editZip;
+		doc.yelp = editYelp;
+		console.log(doc);
+		collection.update({name: editChoice}, doc, function(err, res) {
+			err ? console.log(err) : console.log(res.result);
+		});
+	});
 
 
 	// - DELETE restaurant
